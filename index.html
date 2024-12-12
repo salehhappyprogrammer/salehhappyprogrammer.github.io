@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All About Linux</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            font-size: 2em;
+        }
+
+        .content p {
+            font-size: 1em;
+            line-height: 1.8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Form styling for comments */
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            background-color: #333;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        /* Special styling for verified users */
+        .verified {
+            color: gold;
+            font-weight: bold;
+        }
+
+        /* Special styling for developer */
+        .developer {
+            color: blue;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        /* Moderation status */
+        .moderated {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* Add some space between comments */
+        .comment {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>All About Linux</h1>
+    </header>
+
+    <section class="content">
+        <h2>Introduction to Linux</h2>
+        <p>Linux is an open-source, Unix-like operating system that is widely used in servers, desktops, and mobile devices. It is known for its stability, security, and flexibility. Linux is used by many developers and companies, making it one of the most popular operating systems in the world.</p>
+
+        <h2>Features of Linux</h2>
+        <p>Linux offers a range of features that make it a powerful OS for both personal and professional use:</p>
+        <ul>
+            <li>Open-source software</li>
+            <li>Free to use</li>
+            <li>Highly customizable</li>
+            <li>Extensive software support</li>
+            <li>Security features, such as SELinux</li>
+            <li>Stability and performance</li>
+        </ul>
+
+        <h2>Why Use Linux?</h2>
+        <p>Linux is used by millions of people around the world, from casual users to large enterprises. Here are some reasons why you should consider using Linux:</p>
+        <ul>
+            <li>Linux is free and open-source, meaning you can download, modify, and distribute it without any licensing fees.</li>
+            <li>Linux is extremely secure and is less prone to viruses and malware compared to other operating systems.</li>
+            <li>It supports a wide range of software, including development tools, servers, and entertainment apps.</li>
+        </ul>
+    </section>
+
+    <section class="content">
+        <h2>Leave Your Comment</h2>
+        <form method="POST" action="submit_comment.php">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <textarea name="comment" rows="5" placeholder="Your Comment" required></textarea>
+            <button type="submit">Submit Comment</button>
+        </form>
+
+        <h3>Comments Section</h3>
+        <div id="comments-section">
+            <!-- Simulated Comments (To be replaced with real server-side data) -->
+            <div class="comment">
+                <p><span class="verified">Linus Torvalds:</span> This is a fantastic resource about Linux!</p>
+            </div>
+            <div class="comment moderated">
+                <p><span class="verified">John Doe:</span> I just started using Linux. Any advice for beginners?</p>
+            </div>
+            <div class="comment">
+                <p><span class="verified">Alice Smith:</span> Linux is amazing! It’s great to see so much support.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 All About Linux | Powered by the Community</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/profanity-filter/1.2.1/profanity-filter.min.js"></script>
+    <script>
+        // Create a profanity filter instance
+        const filter = new ProfanityFilter();
+
+        // Function to check if the entered name belongs to a famous person and give them a verified status
+        function checkVerifiedUser(name) {
+            const famousNames = ["Linus Torvalds", "Richard Stallman", "Torvalds", "Stallman"]; // List of famous people
+            return famousNames.some(famousName => famousName.toLowerCase() === name.toLowerCase());
+        }
+
+        // Function to check if the entered name belongs to the developer
+        function checkDeveloperUser(name) {
+            const developerName = "salehhappyprogrammer"; // Developer's username
+            return name.toLowerCase() === developerName.toLowerCase();
+        }
+
+        // Simulate the moderation system
+        const commentForm = document.querySelector('form');
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = commentForm.querySelector('[name="name"]').value;
+            const commentText = commentForm.querySelector('[name="comment"]').value;
+
+            // Filter out profanity from the comment
+            const cleanComment = filter.clean(commentText);
+
+            const newComment = document.createElement('div');
+            newComment.classList.add('comment');
+            newComment.innerHTML = `<p><span class="${checkVerifiedUser(name) ? 'verified' : ''}${checkDeveloperUser(name) ? ' developer' : ''}">${name}:</span> ${cleanComment}</p>`;
+            
+            // Simulate moderation - if it's a famous person, mark them as verified
+            if (checkVerifiedUser(name)) {
+                newComment.classList.add('verified');
+            }
+            // If it's the developer
