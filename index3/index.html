@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibration Button</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .vibrate-button {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+        .vibrate-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <button class="vibrate-button" onclick="triggerVibration()">Press Me!</button>
+
+    <script>
+        function triggerVibration() {
+            // Check if the device supports vibration
+            if ("vibrate" in navigator) {
+                // Trigger vibration for 500 milliseconds
+                navigator.vibrate(500);
+            } else {
+                console.log("Vibration is not supported on this device.");
+            }
+        }
+    </script>
+</body>
+</html>
